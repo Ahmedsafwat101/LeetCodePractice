@@ -3,7 +3,7 @@ class Solution {
         if(matrix == null || matrix.length == 0) return false;
         
         for(int[]row : matrix){
-            if(search(row,target) != -1 && row[search(row,target)] == target) return true;
+            if(search(row,target) != -1 ) return true;
         }
         return false;
     }
