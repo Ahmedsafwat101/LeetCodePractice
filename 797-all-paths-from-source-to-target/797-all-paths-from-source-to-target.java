@@ -18,13 +18,14 @@ class Solution {
     }
     
     private void dfs(int start , int target, HashMap<Integer,List<Integer>> graph,List<List<Integer>> paths,List<Integer> path){
-        if(path.size()==0) path.add(Solution.START);
+        path.add(start);
+        
         if(start == target){
             paths.add(new ArrayList(path));
+            return;
         }
         
         for(int child:graph.get(start)){
-            path.add(child);
             dfs(child,target,graph,paths,path);
             path.remove(path.size()-1);
         }
