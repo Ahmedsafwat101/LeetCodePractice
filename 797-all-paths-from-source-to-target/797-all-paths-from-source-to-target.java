@@ -21,7 +21,6 @@ class Solution {
         if(path.size()==0) path.add(Solution.START);
         if(start == target){
             paths.add(new ArrayList(path));
-            return;
         }
         
         for(int child:graph.get(start)){
