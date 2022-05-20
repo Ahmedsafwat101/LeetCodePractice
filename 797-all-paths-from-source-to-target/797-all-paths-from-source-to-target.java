@@ -1,6 +1,7 @@
 class Solution {
     final static int START = 0;
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+     if(graph==null || graph.length==0) return null;
       HashMap<Integer,List<Integer>>graphMap = new HashMap();
     
         for(int i = 0;i<graph.length;i++){
