@@ -13,10 +13,6 @@ class Solution {
             freq.put(ch,freq.get(ch)-1); 
         }
         
-        for(char key: freq.keySet()){
-            if(freq.get(key) > 0 ) return false;
-        }
-        
         return true;
     }
 }
