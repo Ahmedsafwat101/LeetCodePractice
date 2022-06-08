@@ -1,14 +1,22 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        
         if((s == null && t != null) || (t == null && s != null) || (s.length() != t.length())) return false;
-        char[]sAsArray = s.toCharArray();
-        char[]tAsArray = t.toCharArray();
-
-        Arrays.sort(sAsArray);
-        Arrays.sort(tAsArray);
         
-        return new String(sAsArray).equals(new String(tAsArray));
-
+        HashMap<Character,Integer> freq = new HashMap();
+        for(char ch: s.toCharArray()){
+            freq.put(ch,freq.getOrDefault(ch,0)+1);
+            
+        }
+        
+        for(char ch: t.toCharArray()){
+            if(!freq.containsKey(ch) || freq.get(ch) <= 0 ) return false;
+            freq.put(ch,freq.get(ch)-1); 
+        }
+        
+        for(char key: freq.keySet()){
+            if(freq.get(key) > 0 ) return false;
+        }
+        
+        return true;
     }
 }
