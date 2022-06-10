@@ -10,6 +10,7 @@ class Solution {
                 // negative 
                 while(!astStack.isEmpty()){
                    int top = astStack.peek();
+                    
                     if(top<0){
                         canBeAdded = true; 
                         break;
