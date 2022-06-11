@@ -13,13 +13,34 @@ public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if(headA == null || headB == null) return null;
         HashSet<ListNode> seen = new HashSet();
-        while(headA!=null){
-            seen.add(headA);
-            headA = headA.next;
+        ListNode dummyA = headA;
+        ListNode dummyB = headB;
+        int countA = 0, countB = 0;
+        
+        while(dummyA!=null){
+            countA++;
+            dummyA = dummyA.next;
+        }
+        while(dummyB!=null){
+            countB++;
+            dummyB = dummyB.next;
         }
         
-        while(headB!=null){
-            if(seen.contains(headB)) return headB;
+        int diff = Math.abs(countA-countB);
+         
+        if(countA > countB){
+           for(int i = 0;i<diff;i++){
+               headA =  headA.next;
+           }
+        }else{
+            for(int i = 0;i<diff;i++){
+                headB =  headB.next;
+           }  
+        }
+        
+        while(headA!=null && headB!=null){
+            if(headA == headB) return headA;
+            headA = headA.next;
             headB = headB.next;
         }
         
