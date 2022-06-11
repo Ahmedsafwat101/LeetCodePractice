@@ -22,17 +22,14 @@ class Solution {
     }
     
     private void traverse(TreeNode root,List<String> paths, String path){
+        if(root == null) return;
         if(root.left  == null && root.right == null){
            paths.add(path+root.val);
            return;
         }
         
-        if(root.left!=null){
-            traverse(root.left,paths,path+root.val+"->");
-        }
+        traverse(root.left,paths,path+root.val+"->");
+        traverse(root.right,paths,path+root.val+"->");
         
-        if(root.right!=null){
-            traverse(root.right,paths,path+root.val+"->");
-        }
     }
 }
