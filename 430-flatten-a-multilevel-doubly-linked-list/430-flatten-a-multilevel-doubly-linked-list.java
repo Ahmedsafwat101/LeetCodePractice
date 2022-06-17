@@ -15,21 +15,27 @@ class Solution {
         while(dummyHead != null){
             
             if(dummyHead.child!=null){
-                Node endNode = dummyHead.child;
+                // point to the end node in the branch level
+                Node endNode = dummyHead.child; 
+                // point to the start node in the branch level
                 Node startNode = dummyHead.child;
                 while(endNode.next!=null){
                     endNode = endNode.next;
                 }
-                if(dummyHead.next != null){
+                //check if the node has a next node pointing to it
+                if(dummyHead.next != null){   
+                    // maintain the the endNode pointers 
                   endNode.next = dummyHead.next;
                   dummyHead.next.prev = endNode;
                 }
-                
+                  // maintain the the startNode pointers 
                 dummyHead.next = startNode;
                 startNode.prev = dummyHead;
                 
+                 // remove childNode
                 dummyHead.child = null;
             }
+            
             dummyHead = dummyHead.next;
         }
         
