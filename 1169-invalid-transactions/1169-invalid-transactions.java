@@ -36,9 +36,3 @@ class Solution {
          return inValid;          
     }                 
 }
-
-/*transactions
-[4];
-alice 20 800 mtv     invalid
-alice 50 100 beijing invalid*/
-
