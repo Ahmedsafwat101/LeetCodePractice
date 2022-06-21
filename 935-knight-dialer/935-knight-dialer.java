@@ -14,11 +14,11 @@ class Solution {
     
     private int helper(int curr, int N, int [][]graph,Integer [][]memo){
         if(N == 0) return 1;
-        
         if(memo[N][curr]!=null) return memo[N][curr];
         
         int count = 0;
         for(int nei:graph[curr]){
+            //System.out.println(curr +","+nei);
             count = (count +helper(nei,N-1,graph,memo))%MOD;
         }
         memo[N][curr] = count;
