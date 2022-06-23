@@ -6,7 +6,6 @@ class Solution {
         
         int rows = grid.length;
         int cols = grid[0].length;
-        Queue<int[]> q = new LinkedList(); 
         
         for(int i = 0;i<rows;i++){
             for(int j = 0;j<cols;j++){
