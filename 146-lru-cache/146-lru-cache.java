@@ -3,10 +3,10 @@ class DoubleLinkedListNode{
      DoubleLinkedListNode prev;
      int val;
      int key;
-    public DoubleLinkedListNode(){
+     public DoubleLinkedListNode(){
         
     }
-    public DoubleLinkedListNode(int val, int key){
+     public DoubleLinkedListNode(int val, int key){
         this.val = val;
         this.key = key;
     }
