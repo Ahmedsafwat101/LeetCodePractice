@@ -1,4 +1,8 @@
-class DoubleLinkedListNode{
+
+
+class LRUCache {
+    
+    class DoubleLinkedListNode{
      DoubleLinkedListNode next;
      DoubleLinkedListNode prev;
      int val;
@@ -11,8 +15,7 @@ class DoubleLinkedListNode{
         this.key = key;
     }
 }
-
-class LRUCache {
+    
     HashMap<Integer,DoubleLinkedListNode>meme;
     int capacity;
     DoubleLinkedListNode head;
