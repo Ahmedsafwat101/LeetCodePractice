@@ -23,7 +23,7 @@ class Solution {
         memo[remain] =(minCount == Integer.MAX_VALUE)?-1:minCount;
         
         
-        return (minCount == Integer.MAX_VALUE)?-1:minCount;
+        return memo[remain];
 
     }
 }
