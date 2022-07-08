@@ -3,13 +3,16 @@ class Solution {
         //Check valid input
         Map<Integer,HashSet<Integer>> graph = new HashMap();
         HashSet<Integer>seen = new HashSet();
+         for(int i = 0;i<numCourses;i++)
+            graph.put(i, new HashSet());
+
+
         for(int[]prerequisite: prerequisites){
             
             int fPrerequisite = prerequisite[0];
             int sPrerequisite = prerequisite[1];
             
-            graph.putIfAbsent(sPrerequisite, new HashSet());
-            graph.get(sPrerequisite).add(fPrerequisite);
+            graph.get(fPrerequisite).add(sPrerequisite);
         }
         
         for(int i = 0;i<numCourses;i++){
