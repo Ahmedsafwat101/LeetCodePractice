@@ -33,19 +33,15 @@ class Solution {
             Node prev  = new Node(); // prev pointer 
             for(int i = 0;i<size;i++){
                 Node curr = queue.poll();
-                // maintain the prev pointer between diffrient parents on the same level
-                if(prev!= null && curr.left!=null){  
-                    prev.next = curr.left;
-                }else if(prev!= null && curr.right!=null){
-                    prev.next = curr.right;
-                }
-                
+            
               if(curr.left!=null){
-                   curr.left.next = curr.right;
+                    prev.next = (prev!=null)?curr.left:null;
+                    curr.left.next = curr.right;
                     prev = curr.left;
                     queue.add(curr.left);
                }
                if(curr.right!=null){
+                    prev.next = (prev!=null)?curr.right:null;
                     prev = curr.right;
                     queue.add(curr.right);
                }
