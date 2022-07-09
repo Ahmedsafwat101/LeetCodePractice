@@ -24,29 +24,34 @@ class Node {
 class Solution {
     public Node connect(Node root) {
         if(root == null) return root;
-        
-        Queue<Node> queue = new LinkedList();
-        queue.add(root);
-        
-        while(!queue.isEmpty()){
-            int size = queue.size();
-            Node prev  = new Node(); // prev pointer 
-            for(int i = 0;i<size;i++){
-                Node curr = queue.poll();
+         
+        Node startLevel = new Node();
+        Node iterator = startLevel;
+        Node dummyRoot = root;
+       
+        while(dummyRoot!=null){
             
-              if(curr.left!=null){
-                    prev.next = (prev!=null)?curr.left:null;
-                    curr.left.next = curr.right;
-                    prev = curr.left;
-                    queue.add(curr.left);
-               }
-               if(curr.right!=null){
-                    prev.next = (prev!=null)?curr.right:null;
-                    prev = curr.right;
-                    queue.add(curr.right);
-               }
-            } 
+            if(dummyRoot.left!=null){
+                iterator.next = dummyRoot.left;
+                iterator = dummyRoot.left;
+            }
+            
+            if(dummyRoot.right!=null){
+                 iterator.next = dummyRoot.right;
+                 iterator = dummyRoot.right;
+            }
+            
+            dummyRoot = dummyRoot.next; // multiple node in the same level 
+            
+            // Maintain the new level 
+            if(dummyRoot==null){
+                dummyRoot = startLevel.next;
+                iterator = startLevel;
+                startLevel.next = null;
+            }
+            
         }
-        return root;
+        
+       return root;  
     }
 }
