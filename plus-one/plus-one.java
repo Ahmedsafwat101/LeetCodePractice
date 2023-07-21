@@ -6,18 +6,12 @@ class Solution {
         int carryOn = 1;
         while(lastIndx>= 0){
             int sum =  digits[lastIndx] + carryOn ;
-            // System.out.println("sum:" + sum);
             if(sum  > 9){
                 ans.add(0);
-                // digits[lastIndx]  = 0;
                 carryOn =  (digits[lastIndx] + carryOn) / 10;
-                // System.out.println("carryOn:" + carryOn);
-
             }else{
                ans.add(sum);
                carryOn = 0;
-               // digits[lastIndx] = sum;
-                // break;
             }
             
             lastIndx--;
