@@ -21,10 +21,7 @@ class Solution {
             ans.add(carryOn);
         }
         
-        // System.out.println(ans);
         Collections.reverse(ans);
-        // System.out.println(ans);
-
         return ans.stream().mapToInt(Integer::intValue).toArray();
     }
 }
